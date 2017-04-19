@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<title>Bootstrap Case</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet">
+	<style type="text/css">
+		* {
+			font-family: 'Source Sans Pro', sans-serif;
+		}
+		.banner-container {
+			text-align: center;
+
+		}
+		.banner-container img {
+			display: block;
+			margin: auto;
+			margin-top: 40px;
+		}
+		@media only screen and (max-width: 768px) {
+			.banner-container img { 
+				margin-top: 100px;
+			}
+		}
+		.banner-container .arbutton {
+			
+			border-radius: 10px;
+			background-color: #ee5e5f;
+			font-size: 18px;
+			
+			text-align: center;
+			color: #ffffff;
+			padding: 12px 25px;
+			margin-top: 40px;
+		}
+		.banner-container p {
+			width: 308px;
+			font-family: 'Source SansPro';
+			font-size: 16px;
+			line-height: 1.19;
+			text-align: center;
+			color: #202634;
+			margin: auto;
+			margin-top: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container banner-container">
+		<div class="row">
+			<div class="col-md-12">
+				<img src="img/vector-smart-object.png" />
+				<img src="img/scapic-AR.png" />
+				<img src="img/kanjipattern.png" alt="" class="hidden-xs">
+				<p class="hidden-xs">Move your phone around to see the object from all angles</p>
+				<a href="./ar.html" class="btn arbutton visible-xs">Click to start the AR Demo</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
