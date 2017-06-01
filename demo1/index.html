@@ -1,0 +1,106 @@
+<html>
+	<script
+	  src="https://code.jquery.com/jquery-3.1.1.min.js"
+	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	  crossorigin="anonymous"></script>
+	<!-- <script src="https://rawgit.com/aframevr/aframe/917c06889ee1f3f79b7b1bbd9eab9815f9512503/dist/aframe.min.js"></script> -->
+	<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+	<script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+	<script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+	<script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/2.3.0/nunjucks.min.js"> </script>
+  <script src="https://unpkg.com/aframe-template-component@3.1.1/dist/aframe-template-component.min.js"></script>
+	<script src="./JS/NoSleep.min.js"></script>
+	<script src='./JS/Hotspots.js'></script>
+	<script src="./JS/set-image.js"></script>
+	<head>
+		<title>Board Room</title>
+	</head>
+<body>
+
+	<a-scene>
+
+		<a-asset-items>
+			<img id="corridor_view" src="./assets/panos/pano_view.jpg"></img>
+			<img id="hotspot" src="./assets/img/hotspot.png"></img>
+			<img id="scapic" src="./assets/img/scapic.png"></img>
+			<img id="startButton" src="./assets/img/startExperience.png"></img>
+			<a-mixin id="H_image" material="src: #hotspot"></a-mixin>
+	        <script id="link" type="text/nunjucks">
+	          <a-plane mixin="H_image" class="link" height="1" width="1"
+	            material="shader: flat;side:double;transparent:true;"
+	            event-set__1="_event: mousedown; scale: 1 1 1"
+	            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+	            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+	            event-set__4="_event: mouseleave; scale: 1 1 1"
+	            set-image="on:click;"
+	            ></a-plane>
+        	</script>
+        	<audio src="assets/media/WelcomeScapic.ogg" id="welcomeScapic"></audio>
+		</a-asset-items>
+	 <a-entity id="startScreen">
+	 	<a-image id="startExperience" src="#startButton" position="-5.73 -1.7 -0.63" scale="3.6 0.7 1" rotation="-1.72 88.81 0">
+	 	</a-image>
+	 </a-entity>
+	 <a-entity id="startScreen2" position="1.62 0 0" rotation="0 -178 0">
+	 	<a-image id="startExperience2" src="#startButton" position="-3.83 -1.7 0.56" scale="4.5 1 1" rotation="-1.72 88.81 0">
+	 	</a-image>
+	 </a-entity>
+
+	 	<a-entity id="camera" camera look-controls wasd-controls rotation="-11.8 80.9 0">
+          <!-- Cursor. -->
+          <a-entity id="cursor" position="0 0 -2" cursor="fuse: true; fuseTimeout: 900"
+                    geometry="primitive: ring; radiusOuter: 0.016; radiusInner: 0.01"
+                    material="color: #ff9; shader: flat; transparent: true; opacity: 0.5"
+                    scale="2 2 2" raycaster>
+                <a-animation attribute="scale" begin="animate" fill="none" easing="ease" from="1 1 1" to="3 3 3" ></a-animation>
+          </a-entity>
+        </a-entity>
+
+				<a-entity id="person_one" class="person_one" visible="true" scale="1 1 1" position="-7.494 -0.531 -3.736" rotation="0 60.000 0"
+							geometry="primitive: plane; width: 2; height: 0.7"
+							material="color: white; side: double; transparent: false; opacity: 1">
+					<a-entity position="1.086 0.037 0.01"  class ='ignoreTemplate'>
+						<a-entity position="0 0 0"
+											text="color: black; width: 4; lineHeight: 34;align: left; value: Hi! I am Person One\nand I am on the\nextreme left ; font: http://assets.scapic.com/fonts/Aleo.fnt; fontImage: http://assets.scapic.com/fonts/Aleo.png" >
+						</a-entity>
+				</a-entity>
+				</a-entity>
+
+				<a-entity id="person_two" class="person_two" visible="true" scale="1 1 1" position="-4.188 0.771 -7.481" rotation="0 44.480 0"
+							geometry="primitive: plane; width: 2; height: 0.7"
+							material="color: white; side: double; transparent: false; opacity: 1">
+					<a-entity position="1.086 0.037 0.01"  class ='ignoreTemplate'>
+						<a-entity position="0 0 0"
+											text="color: black; width: 4; lineHeight: 34;align: left; value: Hi! I am Person Two\nand I am in the\ncenter ; font: http://assets.scapic.com/fonts/Aleo.fnt; fontImage: http://assets.scapic.com/fonts/Aleo.png" >
+						</a-entity>
+				</a-entity>
+				</a-entity>
+
+				<a-entity id="person_three" class="person_three" visible="true" scale="1 1 1" position="-0.745 0.664 -7.388" rotation="0 0 0"
+							geometry="primitive: plane; width: 2; height: 0.7"
+							material="color: white; side: double; transparent: false; opacity: 1">
+					<a-entity position="1.086 0.037 0.01"  class ='ignoreTemplate'>
+						<a-entity position="0 0 0"
+											text="color: black; width: 4; lineHeight: 34;align: left; value: Hi! I am Person Three\nand I am in the\ncenter ; font: http://assets.scapic.com/fonts/Aleo.fnt; fontImage: http://assets.scapic.com/fonts/Aleo.png" >
+						</a-entity>
+				</a-entity>
+				</a-entity>
+
+				<a-entity id="person_four" class="person_four" visible="true" scale="1 1 1" position="1.553 -1.745 -6.178" rotation="0 0 0"
+							geometry="primitive: plane; width: 2; height: 0.7"
+							material="color: white; side: double; transparent: false; opacity: 1">
+					<a-entity position="1.086 0.037 0.01"  class ='ignoreTemplate'>
+						<a-entity position="0 0 0"
+											text="color: black; width: 4; lineHeight: 34;align: left; value: Hi! I am Person Four\nand I am on the\nextreme right ; font: http://assets.scapic.com/fonts/Aleo.fnt; fontImage: http://assets.scapic.com/fonts/Aleo.png" >
+						</a-entity>
+				</a-entity>
+				</a-entity>
+
+		<a-sky src="#corridor_view">
+		</a-sky>
+		<!-- <a-entity id="tempSky" geometry="primitive: sphere;radius: 5000" material="side: back; src:#start; repeat:-1 1" ></a-entity> -->
+	</a-scene>
+</body>
+</html>
